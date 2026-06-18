@@ -4,7 +4,7 @@ import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
 import { Textarea } from "../components/ui/textarea";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 
 const ease = [0.25, 0.46, 0.45, 0.94] as const;
@@ -24,6 +24,11 @@ function FadeUp({ children, delay = 0, className = "" }: { children: React.React
 }
 
 export function Contact() {
+  useEffect(() => {
+    document.title = "Kontakt – umakeIT Serwis Komputerowy Wrocław";
+    document.querySelector('meta[name="description"]')?.setAttribute("content", "Skontaktuj się z umakeIT – serwisem komputerowym we Wrocławiu. Zadzwoń: 532 809 383 lub napisz wiadomość. Szybka odpowiedź i bezpłatna wycena.");
+  }, []);
+
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
 

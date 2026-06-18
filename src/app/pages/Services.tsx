@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
 import { Monitor, Wrench, HardDrive, Cpu, Fan, Settings, CircuitBoard } from "lucide-react";
@@ -20,6 +21,11 @@ function FadeUp({ children, delay = 0, className = "" }: { children: React.React
 }
 
 export function Services() {
+  useEffect(() => {
+    document.title = "Usługi – umakeIT Serwis Komputerowy Wrocław";
+    document.querySelector('meta[name="description"]')?.setAttribute("content", "Składanie komputerów PC na zamówienie, naprawa laptopów, wymiana podzespołów, czyszczenie i konserwacja. Serwis komputerowy Wrocław – umakeIT.");
+  }, []);
+
   const services = [
     {
       icon: Monitor,

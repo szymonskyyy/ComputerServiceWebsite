@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-router";
 import { Button } from "../components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card";
@@ -22,6 +23,11 @@ function FadeUp({ children, delay = 0, className = "" }: { children: React.React
 }
 
 export function Home() {
+  useEffect(() => {
+    document.title = "umakeIT – Serwis Komputerowy Wrocław | Składanie PC, Naprawa";
+    document.querySelector('meta[name="description"]')?.setAttribute("content", "Profesjonalny serwis komputerowy we Wrocławiu. Składanie komputerów stacjonarnych na zamówienie, naprawa laptopów i PC. Zadzwoń: 532 809 383.");
+  }, []);
+
   const features = [
     { icon: Zap, title: "Szybka realizacja", description: "Większość zleceń w ciągu 24–48 godzin. Bez niepotrzebnego czekania." },
     { icon: Shield, title: "Gwarancja rozruchowa", description: "Komputer musi działać od razu po odebraniu — naprawię każdy problem z montażu bezpłatnie." },

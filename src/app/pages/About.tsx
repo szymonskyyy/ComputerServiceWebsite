@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Button } from "../components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "../components/ui/card";
 import { Award, CheckCircle, ThumbsUp, Cpu, Phone } from "lucide-react";
@@ -24,6 +25,11 @@ function FadeUp({ children, delay = 0, className = "" }: { children: React.React
 }
 
 export function About() {
+  useEffect(() => {
+    document.title = "O mnie – Szymon Malek | umakeIT Serwis Komputerowy Wrocław";
+    document.querySelector('meta[name="description"]')?.setAttribute("content", "Szymon Malek – założyciel umakeIT. Montuję komputery i serwisuje sprzęt we Wrocławiu z pasją i uczciwością. Indywidualne podejście do każdego zlecenia.");
+  }, []);
+
   const values = [
     { icon: ThumbsUp, title: "Szczerość", description: "Mówię wprost, co można naprawić, co wymienić i ile to kosztuje. Bez naciągania." },
     { icon: Award, title: "Gwarancja rozruchowa", description: "Każdy zmontowany komputer musi działać od pierwszego włączenia — inaczej naprawiam bezpłatnie." },
