@@ -38,19 +38,19 @@ export function Home() {
     {
       title: "Montaż komputerów",
       description: "Składam komputery stacjonarne dopasowane do Twoich potrzeb i budżetu.",
-      image: "https://images.unsplash.com/photo-1619597455322-4fbbd820250a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZXNrdG9wJTIwY29tcHV0ZXIlMjBhc3NlbWJseSUyMGNvbXBvbmVudHN8ZW58MXx8fHwxNzgxNjMxMDA1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      image: "https://images.unsplash.com/photo-1619597455322-4fbbd820250a?crop=entropy&cs=tinysrgb&fit=max&fm=webp&q=70&w=662",
       features: ["Dobór podzespołów", "Montaż i konfiguracja", "Instalacja systemu", "Gwarancja rozruchowa"],
     },
     {
       title: "Serwis i naprawa",
       description: "Diagnozuję i naprawiam usterki komputerów stacjonarnych wszystkich marek.",
-      image: "https://images.unsplash.com/photo-1603969409447-ba86143a03f6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb21wdXRlciUyMHJlcGFpciUyMHRlY2huaWNpYW4lMjBkZXNrdG9wfGVufDF8fHx8MTc4MTYzMTAwNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      image: "https://images.unsplash.com/photo-1603969409447-ba86143a03f6?crop=entropy&cs=tinysrgb&fit=max&fm=webp&q=70&w=662",
       features: ["Diagnostyka usterek", "Wymiana podzespołów", "Czyszczenie i konserwacja", "Aktualizacja systemu"],
     },
     {
       title: "Modernizacja",
       description: "Rozbudowuję istniejące komputery — więcej mocy bez kupowania nowego sprzętu.",
-      image: "https://images.unsplash.com/photo-1580835916901-40770720c505?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb21wdXRlciUyMGhhcmR3YXJlJTIwd29ya3Nob3B8ZW58MXx8fHwxNzgxNjMxMDA1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      image: "https://images.unsplash.com/photo-1580835916901-40770720c505?crop=entropy&cs=tinysrgb&fit=max&fm=webp&q=70&w=662",
       features: ["Upgrade RAM i procesora", "Wymiana karty graficznej", "Dysk SSD", "Upgrade zasilacza"],
     },
   ];
@@ -153,11 +153,11 @@ export function Home() {
                 <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-500 h-full">
                   <div className="aspect-video overflow-hidden">
                     <motion.div whileHover={{ scale: 1.04 }} transition={{ duration: 0.5, ease }} className="h-full">
-                      <ImageWithFallback src={s.image} alt={s.title} className="size-full object-cover" loading="lazy" />
+                      <ImageWithFallback src={s.image} alt={s.title} className="size-full object-cover" loading="lazy" width={662} height={441} />
                     </motion.div>
                   </div>
                   <CardHeader>
-                    <CardTitle>{s.title}</CardTitle>
+                    <CardTitle className="text-base">{s.title}</CardTitle>
                     <CardDescription>{s.description}</CardDescription>
                   </CardHeader>
                   <CardContent>

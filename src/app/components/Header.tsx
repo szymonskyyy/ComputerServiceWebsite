@@ -43,6 +43,8 @@ export function Header() {
               src={logo}
               alt="umakeIT"
               className="h-10 w-auto object-contain rounded-xl"
+              width={40}
+              height={40}
             />
             <div>
               <div className="font-bold text-lg leading-tight text-gray-900 dark:text-white">umakeIT</div>
