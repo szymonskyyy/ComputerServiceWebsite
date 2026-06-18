@@ -153,7 +153,7 @@ export function Home() {
                 <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-500 h-full">
                   <div className="aspect-video overflow-hidden">
                     <motion.div whileHover={{ scale: 1.04 }} transition={{ duration: 0.5, ease }} className="h-full">
-                      <ImageWithFallback src={s.image} alt={s.title} className="size-full object-cover" />
+                      <ImageWithFallback src={s.image} alt={s.title} className="size-full object-cover" loading="lazy" />
                     </motion.div>
                   </div>
                   <CardHeader>

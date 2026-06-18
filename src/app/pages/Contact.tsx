@@ -118,16 +118,16 @@ export function Contact() {
                   <form onSubmit={handleSubmit} className="space-y-5">
                     <div>
                       <Label htmlFor="name">Imię i nazwisko *</Label>
-                      <Input id="name" name="name" value={formData.name} onChange={handleChange} required placeholder="Jan Kowalski" />
+                      <Input id="name" name="name" autoComplete="name" value={formData.name} onChange={handleChange} required placeholder="Jan Kowalski" />
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
                         <Label htmlFor="email">Email *</Label>
-                        <Input id="email" name="email" type="email" value={formData.email} onChange={handleChange} required placeholder="jan@example.com" />
+                        <Input id="email" name="email" type="email" autoComplete="email" value={formData.email} onChange={handleChange} required placeholder="jan@example.com" />
                       </div>
                       <div>
                         <Label htmlFor="phone">Telefon</Label>
-                        <Input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleChange} placeholder="np. 532 809 383" />
+                        <Input id="phone" name="phone" type="tel" autoComplete="tel" value={formData.phone} onChange={handleChange} placeholder="np. 532 809 383" />
                       </div>
                     </div>
                     <div>

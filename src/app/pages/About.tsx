@@ -3,9 +3,8 @@ import { Button } from "../components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "../components/ui/card";
 import { Award, CheckCircle, ThumbsUp, Cpu, Phone } from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
-import profileBanner from "../../imports/Profile_banner_-_1-1.png";
 import profilePhoto from "../../imports/IMG_3831.JPEG";
-import cablePhoto from "../../imports/IMG_0285.jpeg";
+import cablePhoto from "../../imports/IMG_0285.JPEG";
 import { motion } from "motion/react";
 
 const ease = [0.25, 0.46, 0.45, 0.94] as const;
@@ -60,7 +59,7 @@ export function About() {
             <div className="flex flex-col md:flex-row gap-10 items-start mb-14">
               <FadeUp className="w-full md:w-72 flex-shrink-0">
                 <div className="rounded-2xl overflow-hidden shadow-lg">
-                  <ImageWithFallback src={profilePhoto} alt="Szymon Malek" className="w-full h-auto object-cover" />
+                  <ImageWithFallback src={profilePhoto} alt="Szymon Malek" className="w-full h-auto object-cover" loading="lazy" />
                 </div>
                 <div className="mt-5 text-center">
                   <p className="font-bold text-gray-900 dark:text-white text-xl">Szymon Malek</p>
@@ -148,6 +147,7 @@ export function About() {
                   src={cablePhoto}
                   alt="Cable management – umakeIT"
                   className="w-full h-auto object-cover"
+                  loading="lazy"
                 />
               </div>
             </FadeUp>
