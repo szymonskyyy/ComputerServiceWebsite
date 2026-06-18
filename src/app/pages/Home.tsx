@@ -38,19 +38,19 @@ export function Home() {
     {
       title: "Montaż komputerów",
       description: "Składam komputery stacjonarne dopasowane do Twoich potrzeb i budżetu.",
-      image: "https://images.unsplash.com/photo-1619597455322-4fbbd820250a?crop=entropy&cs=tinysrgb&fit=max&fm=webp&q=70&w=662",
+      image: "https://images.unsplash.com/photo-1619597455322-4fbbd820250a?crop=entropy&cs=tinysrgb&fit=max&fm=webp&q=50&w=400",
       features: ["Dobór podzespołów", "Montaż i konfiguracja", "Instalacja systemu", "Gwarancja rozruchowa"],
     },
     {
       title: "Serwis i naprawa",
       description: "Diagnozuję i naprawiam usterki komputerów stacjonarnych wszystkich marek.",
-      image: "https://images.unsplash.com/photo-1603969409447-ba86143a03f6?crop=entropy&cs=tinysrgb&fit=max&fm=webp&q=70&w=662",
+      image: "https://images.unsplash.com/photo-1603969409447-ba86143a03f6?crop=entropy&cs=tinysrgb&fit=max&fm=webp&q=50&w=400",
       features: ["Diagnostyka usterek", "Wymiana podzespołów", "Czyszczenie i konserwacja", "Aktualizacja systemu"],
     },
     {
       title: "Modernizacja",
       description: "Rozbudowuję istniejące komputery — więcej mocy bez kupowania nowego sprzętu.",
-      image: "https://images.unsplash.com/photo-1580835916901-40770720c505?crop=entropy&cs=tinysrgb&fit=max&fm=webp&q=70&w=662",
+      image: "https://images.unsplash.com/photo-1580835916901-40770720c505?crop=entropy&cs=tinysrgb&fit=max&fm=webp&q=50&w=400",
       features: ["Upgrade RAM i procesora", "Wymiana karty graficznej", "Dysk SSD", "Upgrade zasilacza"],
     },
   ];
