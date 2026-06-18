@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import logo from "../../imports/unainow_logo_4x.png";
+import logo from "../../imports/unainow_logo_4x.jpg";
 
 export function Footer() {
   return (

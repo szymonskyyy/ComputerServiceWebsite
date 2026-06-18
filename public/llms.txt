@@ -1,0 +1,15 @@
+# umakeIT – Serwis Komputerowy Wrocław
+
+> Profesjonalny serwis komputerowy we Wrocławiu. Składanie komputerów stacjonarnych na zamówienie, naprawa laptopów i PC.
+
+## Strony
+
+- [Strona główna](https://umakeit.studio/)
+- [Usługi](https://umakeit.studio/uslugi)
+- [O mnie](https://umakeit.studio/o-nas)
+- [Kontakt](https://umakeit.studio/kontakt)
+
+## Kontakt
+
+- Telefon: 532 809 383
+- Lokalizacja: Wrocław, Polska

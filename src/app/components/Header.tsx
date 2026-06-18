@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { ThemeToggle } from "./ThemeToggle";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { motion, AnimatePresence } from "motion/react";
-import logo from "../../imports/unainow_logo_4x.png";
+import logo from "../../imports/unainow_logo_4x.jpg";
 
 export function Header() {
   const location = useLocation();

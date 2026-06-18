@@ -3,8 +3,8 @@ import { Button } from "../components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "../components/ui/card";
 import { Award, CheckCircle, ThumbsUp, Cpu, Phone } from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
-import profilePhoto from "../../imports/IMG_3831.JPEG";
-import cablePhoto from "../../imports/IMG_0285.JPEG";
+import profilePhoto from "../../imports/IMG_3831.jpg";
+import cablePhoto from "../../imports/IMG_0285.jpg";
 import { motion } from "motion/react";
 
 const ease = [0.25, 0.46, 0.45, 0.94] as const;
