@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konfiguracja EmailJS - umakeIT</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 600px;
+            width: 100%;
+            padding: 40px;
+        }
+        h1 {
+            color: #7c3aed;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        p {
+            color: #6b7280;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        button {
+            background: #7c3aed;
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background: #6d28d9;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(124, 58, 237, 0.3);
+        }
+        button:disabled {
+            background: #d1d5db;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+        .result.success {
+            background: #d1fae5;
+            border: 2px solid #10b981;
+            display: block;
+        }
+        .result.error {
+            background: #fee2e2;
+            border: 2px solid #ef4444;
+            display: block;
+        }
+        .result h2 {
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        .result.success h2 {
+            color: #065f46;
+        }
+        .result.error h2 {
+            color: #991b1b;
+        }
+        .template-id {
+            background: #f3f4f6;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            font-weight: bold;
+            color: #7c3aed;
+            text-align: center;
+            border: 2px dashed #7c3aed;
+        }
+        .steps {
+            background: #f9fafb;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+        .steps ol {
+            margin-left: 20px;
+            color: #374151;
+        }
+        .steps li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        .spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #fff;
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto;
+        }
+        button:disabled .spinner {
+            display: block;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .info {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        .info p {
+            margin: 0;
+            color: #1e40af;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Konfiguracja EmailJS</h1>
+        <p>Ten skrypt automatycznie utworzy szablon email w Twoim koncie EmailJS dla formularza kontaktowego umakeIT.</p>
+        
+        <div class="info">
+            <p><strong>ℹ️ Informacja:</strong> Używam Twojego Access Token do jednorazowego utworzenia szablonu. Token nie jest nigdzie zapisywany.</p>
+        </div>
+
+        <button id="createBtn" onclick="createTemplate()">
+            <span id="btnText">Utwórz szablon EmailJS</span>
+            <div class="spinner"></div>
+        </button>
+
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        const ACCESS_TOKEN = '_4kIzY2fz_jK2OnnuZcWw';
+        const SERVICE_ID = 'service_bz4714w';
+
+        const templateConfig = {
+            service_id: SERVICE_ID,
+            template_name: 'umakeIT - Formularz kontaktowy',
+            subject: 'Nowa wiadomość z umakeIT.pl - {{from_name}}',
+            content_html: `
+                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9fafb;">
+                    <div style="background-color: white; border-radius: 8px; padding: 30px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                        <h2 style="color: #7c3aed; margin-top: 0;">📧 Nowa wiadomość z formularza kontaktowego</h2>
+                        
+                        <div style="margin: 20px 0; padding: 15px; background-color: #f3f4f6; border-left: 4px solid #7c3aed; border-radius: 4px;">
+                            <h3 style="margin: 0 0 10px 0; color: #374151;">Dane kontaktowe:</h3>
+                            <p style="margin: 5px 0;"><strong>Imię i nazwisko:</strong> {{from_name}}</p>
+                            <p style="margin: 5px 0;"><strong>Email:</strong> <a href="mailto:{{from_email}}" style="color: #7c3aed;">{{from_email}}</a></p>
+                            <p style="margin: 5px 0;"><strong>Telefon:</strong> {{phone}}</p>
+                        </div>
+                        
+                        <div style="margin: 20px 0;">
+                            <h3 style="color: #374151;">Treść wiadomości:</h3>
+                            <div style="background-color: #f9fafb; padding: 15px; border-radius: 4px; white-space: pre-wrap;">{{message}}</div>
+                        </div>
+                        
+                        <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 20px 0;">
+                        
+                        <p style="color: #6b7280; font-size: 12px; margin: 10px 0 0 0;">
+                            Ta wiadomość została wysłana z formularza kontaktowego na stronie umakeIT.pl
+                        </p>
+                    </div>
+                </div>
+            `,
+            content_text: `
+Nowa wiadomość z formularza kontaktowego umakeIT
+
+Od: {{from_name}}
+Email: {{from_email}}
+Telefon: {{phone}}
+
+Wiadomość:
+{{message}}
+
+---
+Ta wiadomość została wysłana z formularza kontaktowego na stronie umakeIT.pl
+            `,
+            reply_to: '{{from_email}}'
+        };
+
+        async function createTemplate() {
+            const btn = document.getElementById('createBtn');
+            const btnText = document.getElementById('btnText');
+            const result = document.getElementById('result');
+            
+            btn.disabled = true;
+            btnText.textContent = 'Tworzenie szablonu...';
+            result.className = 'result';
+            result.innerHTML = '';
+
+            try {
+                const response = await fetch('https://api.emailjs.com/api/v1.0/email-templates', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${ACCESS_TOKEN}`
+                    },
+                    body: JSON.stringify(templateConfig)
+                });
+
+                if (!response.ok) {
+                    const error = await response.text();
+                    throw new Error(`Błąd API: ${response.status} - ${error}`);
+                }
+
+                const data = await response.json();
+                
+                result.className = 'result success';
+                result.innerHTML = `
+                    <h2>✅ Szablon utworzony pomyślnie!</h2>
+                    <p><strong>Twój Template ID:</strong></p>
+                    <div class="template-id">${data.id}</div>
+                    <div class="steps">
+                        <p><strong>Co dalej?</strong></p>
+                        <ol>
+                            <li>Skopiuj Template ID powyżej</li>
+                            <li>Wróć do czatu z asystentem</li>
+                            <li>Wklej Template ID w wiadomości</li>
+                            <li>Asystent automatycznie zaktualizuje formularz! 🎉</li>
+                        </ol>
+                    </div>
+                `;
+                
+                btnText.textContent = '✓ Szablon utworzony';
+                
+            } catch (error) {
+                result.className = 'result error';
+                result.innerHTML = `
+                    <h2>❌ Wystąpił błąd</h2>
+                    <p><strong>Szczegóły:</strong> ${error.message}</p>
+                    <div class="steps">
+                        <p><strong>💡 Sprawdź czy:</strong></p>
+                        <ol>
+                            <li>Masz połączenie z internetem</li>
+                            <li>Access Token jest prawidłowy</li>
+                            <li>Szablon o tej nazwie już nie istnieje w EmailJS</li>
+                        </ol>
+                        <p style="margin-top: 15px;"><strong>Alternatywa:</strong> Możesz utworzyć szablon ręcznie w panelu EmailJS (emailjs.com) używając zmiennych: {{from_name}}, {{from_email}}, {{phone}}, {{message}}</p>
+                    </div>
+                `;
+                
+                btn.disabled = false;
+                btnText.textContent = 'Spróbuj ponownie';
+            }
+        }
+    </script>
+</body>
+</html>
