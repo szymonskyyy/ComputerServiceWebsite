@@ -5,11 +5,20 @@ import { Button } from "./ui/button";
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
 
+  const toggle = () => {
+    const next = theme === "dark" ? "light" : "dark";
+    if (!("startViewTransition" in document)) {
+      setTheme(next);
+      return;
+    }
+    (document as any).startViewTransition(() => setTheme(next));
+  };
+
   return (
     <Button
       variant="ghost"
       size="icon"
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      onClick={toggle}
       aria-label="Przełącz motyw"
       className="rounded-full"
     >
